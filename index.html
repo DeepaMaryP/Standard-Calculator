@@ -15,14 +15,14 @@
     <script src="script.js"></script>
     <div class="container">
         <div class="row">
-            <div class="col-6 border mx-auto m-5 rounded shadow">
+            <div class="col-6 border mx-auto m-5  rounded shadow">
                 <div id="display" class="row w-100 mx-auto my-2">                 
                     <div id="dispayCalc" class="text-end text-muted pb-4" style="font-size: small; height: 20px;" ></div>
                     <div class="d-flex align-items-center digits rounded">
                         <p name="result" id="result" class=" text-end w-100 fs-4 " style="height: 25px;"> 0 </p>   
                     </div>                                  
                 </div>
-                <div class="row p-2  gap-2 ">
+                <div class="row p-2 gap-2 justify-content-center ">
                     <div class="col-md-3 col-sm-5 border text-center rounded digits">
                         <button class="btn" onclick="calculatePercentage()">%</button>
                     </div>
@@ -36,7 +36,7 @@
                         <button class="btn" onclick="deleteLast()">⌫</button>
                     </div>
                 </div>
-                <div class="row p-2 gap-2 ">
+                <div class="row p-2 gap-2 justify-content-center">
                     <div class="col-md-3 col-sm-5 border text-center rounded digits">
                         <button class="btn" onclick="calculateResult('1/x')" >1/x</button>
                     </div>
@@ -50,7 +50,7 @@
                         <button class="btn" onclick="doOperations('÷')">÷</button>
                     </div>
                 </div>
-                <div class="row p-2 gap-2">
+                <div class="row p-2 gap-2 justify-content-center">
                     <div class="col-md-3 col-sm-5 border text-center rounded digits">
                         <button class="btn" onclick="handleClick(7)">7</button>
                     </div>
@@ -64,7 +64,7 @@
                         <button class="btn" onclick="doOperations('*')">*</button>
                     </div>
                 </div>
-                <div class="row p-2 gap-2">
+                <div class="row p-2 gap-2 justify-content-center">
                     <div class="col-md-3 col-sm-5 border text-center rounded digits">
                         <button class="btn" onclick="handleClick(4)">4</button>
                     </div>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="row p-2 gap-2">
+                <div class="row p-2 gap-2 justify-content-center">
                     <div class="col-md-3 col-sm-5 border text-center rounded digits">
                         <button class="btn" onclick="handleClick(1)">1</button>
                     </div>
@@ -93,7 +93,7 @@
                         <button class="btn" onclick="doOperations('+')">+</button>
                     </div>
                 </div>
-                <div class="row p-2 gap-2">
+                <div class="row p-2 gap-2 justify-content-center">
                     <div class="col-md-3 col-sm-5 border text-center rounded digits">
                         <button class="btn" onclick="negateValue()">+/-</button>
                     </div>
