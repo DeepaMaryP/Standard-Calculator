@@ -6,11 +6,17 @@ const handleClick = (value) => { // For numbers and .
     const display = document.getElementById("result"); // to display result
     const displayCalc = document.getElementById("dispayCalc");   // to display calculation
 
-    if (display.innerHTML == 0 || isOperated || isEqual) {
+    if (isSpecialOperator) { // if special functions are included in history         
+        const expression = correct_HistoryAfterSpecialOperation(displayCalc.innerHTML, display.innerHTML);
+        displayCalc.innerHTML = expression;
         display.innerHTML = value
-    } else {
+    } else  if (display.innerHTML == 0 || isOperated || isEqual) {
+        display.innerHTML = value
+    } 
+    else {       
         display.innerHTML += value
     }
+
     if (isEqual) {
         displayCalc.innerHTML = "";
     }
@@ -26,7 +32,7 @@ const doOperations = (operator) => { // For operators +,-,*,/
     if (isEqual) {  // clean up history after =
         displayCalc.innerHTML = "";
     } else if (displayCalc.innerHTML.length > 0)  // if history
-    {
+    {      
         if (isSpecialOperator) { // if special functions are included in history
            const expression = correct_HistoryAfterSpecialOperation(displayCalc.innerHTML, display.innerHTML);
            displayCalc.innerHTML = expression;
@@ -43,7 +49,7 @@ const onEqual = () => {  // For =
     const display = document.getElementById("result");
     const displayCalc = document.getElementById("dispayCalc");
 
-    let result = display.innerHTML;
+    let result = display.innerHTML;    
     if (displayCalc.innerHTML.length > 0) // if history 
     {
         if (isSpecialOperator) { // if special functions are included in history
@@ -67,7 +73,7 @@ const evalResult = (history, currentValue) => {
 
 const correct_HistoryAfterSpecialOperation = (history) => {
     const pattern =/sqr|1\/|negate|√|∛|=/  
-    let specialOperatorResult = history.match(pattern)    
+    let specialOperatorResult = history.match(pattern)       
     if (specialOperatorResult?.length > 0) {
         const specialOperatorIndex = history.indexOf(specialOperatorResult[0])
         const tempResult = history.substring(0, specialOperatorIndex)
@@ -85,7 +91,11 @@ const clearResult = () => { // clearing the results
 const calculateResult = (func) => { // For special functions
     const display = document.getElementById("result");
     const displayCalc = document.getElementById("dispayCalc");
-    isSpecialOperator = true;
+  
+    if (isSpecialOperator) { // if special functions are included in history
+        const expression = correct_HistoryAfterSpecialOperation(displayCalc.innerHTML, display.innerHTML);           
+        displayCalc.innerHTML = expression;
+    }
 
     if (isEqual) {
         displayCalc.innerHTML = "";
@@ -125,6 +135,7 @@ const calculateResult = (func) => { // For special functions
 
     displayCalc.innerHTML += label;
     display.innerHTML = output;
+    isSpecialOperator = true;
 }
 
 function deleteLast() {
